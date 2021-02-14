@@ -6,13 +6,27 @@ import org.openqa.selenium.WebElement;
 
 public class MyAccountPage {
 	WebDriver driver;
+	WebElement myAddressesButton;
+	WebElement myPersonalInfoButton;
+	WebElement myWishlistsButton;
 	WebElement welcomeMessage;
 	WebElement errorMessage;
 	WebElement signOutButton;
-	WebElement myAddressesButton;
+
+	public MyAccountPage(WebDriver driver) {
+		this.driver = driver;
+	}
 	
+	public WebElement getMyPersonalInfoButton() {
+		return driver.findElement(By.xpath("//a[@title='Information']"));
+	}
+
+	public WebElement getMyWishlistsButton() {
+		return driver.findElement(By.xpath("//a[@title='My wishlists']"));
+	}
+
 	public WebElement getMyAddressesButton() {
-		return driver.findElement(By.xpath("//*[@id=\"center_column\"]/div/div[1]/ul/li[3]/a/span"));
+		return driver.findElement(By.xpath("//a[@title='Addresses']"));
 	}
 	
 	public WebElement getSignOutButton() {
@@ -26,10 +40,8 @@ public class MyAccountPage {
 	public WebElement getWelcomeMessage() {
 		return driver.findElement(By.className("info-account"));
 	}
-
-	public MyAccountPage(WebDriver driver) {
-		this.driver = driver;
-	}
+	
+	//Methods
 	
 	public void signOutButtonClick() {
 		this.getSignOutButton().click();
@@ -38,4 +50,15 @@ public class MyAccountPage {
 	public void myAddressesButtonClick() {
 		this.getMyAddressesButton().click();
 	}
+	
+	public void MyPersonalInfoButtonClick() {
+		this.getMyPersonalInfoButton().click();
+	}
+	
+	public void MyWishlistsButtonClick() {
+	    this.getMyWishlistsButton().click();
 }
+	
+	}
+	
+
